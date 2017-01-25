@@ -5,6 +5,8 @@ class Unit extends Component {
     super();
     this.state = {
     };
+    this.handleChange = this.handleChange.bind(this);
+
   };
   render() {
     return (
