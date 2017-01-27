@@ -30,6 +30,18 @@ class Unit extends Component {
   render() {
     return (
       <div>
+      Army:<input
+        type="text"
+        value={this.army}
+        name='army'
+        onChange={this.handleChange}
+        />
+      Unit Name:<input
+        type="text"
+        value={this.unitName}
+        name='unitName'
+        onChange={this.handleChange}
+        />
       Weapon Skill:<input
         type="number"
         value={this.ws}
