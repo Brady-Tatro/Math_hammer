@@ -19,17 +19,32 @@ class Unit extends Component {
       sv: '',
     };
     this.handleChange = this.handleChange.bind(this);
-
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   };
+
   handleChange(event) {
     let nextState = {};
     nextState[event.target.name] = event.target.value;
     this.setState(nextState);
   }
+  handleFormSubmit(event) {
+    let formData = { army: this.state.army, unitName: this.state.unitName, minimumSize: this.state.minimumSize, maximumSize: this.state.maximumSize, ws: this.state.ws, bs: this.state.bs, strength: this.state.strength, toughness: this.state.toughness, wounds: this.state.wounds, iniative: this.state.iniative, attacks: this.state.attacks, leadership: this.state.leadership, sv: this.state.sv  }
+    $.ajax({
+      type: 'POST',
+      url: '/api/v1/units',
+      data: { unit: formData }
+    }).success(data =>{
+      $.toast('success');
+    }).error(data => {
+      $.toast('Please Sign In');
+    });
+    event.preventDefault();
+  }
 
   render() {
     return (
       <div>
+      <form onSubmit={this.handleFormSubmit}>
       Army:<input
         type="text"
         value={this.army}
@@ -42,6 +57,18 @@ class Unit extends Component {
         name='unitName'
         onChange={this.handleChange}
         />
+        Minimum Unit Size:<input
+          type="number"
+          value={this.minimumSize}
+          name='minimumSize'
+          onChange={this.handleChange}
+          />
+          Maximum Unit Size:<input
+            type="number"
+            value={this.maximumSize}
+            name='maximumSize'
+            onChange={this.handleChange}
+            />
       Weapon Skill:<input
         type="number"
         value={this.ws}
@@ -78,6 +105,12 @@ class Unit extends Component {
                   name='iniative'
                   onChange={this.handleChange}
                   />
+                  Attacks:<input
+                    type="number"
+                    value={this.attacks}
+                    name='attacks'
+                    onChange={this.handleChange}
+                    />
                   Leadership:<input
                     type="number"
                     value={this.leadership}
@@ -90,7 +123,8 @@ class Unit extends Component {
                       name='sv'
                       onChange={this.handleChange}
                       />
-
+                      <input type="submit" value="Submit Unit" />
+                      </form>
       </div>
     );
   };

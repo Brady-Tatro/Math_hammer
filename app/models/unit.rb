@@ -1,4 +1,4 @@
-class User < ApplicationRecord::Base
+class Unit < ApplicationRecord
 
   validates :army, presence: true
   validates :unitName, presence: true
