@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126211419) do
+ActiveRecord::Schema.define(version: 20170131194520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 20170126211419) do
     t.integer "attacks",     null: false
     t.integer "leadership",  null: false
     t.integer "sv",          null: false
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.string  "name",           null: false
+    t.integer "range",          null: false
+    t.integer "shots",          null: false
+    t.integer "weaponStrength", null: false
+    t.integer "ap",             null: false
+    t.string  "firstSpecial"
+    t.string  "secondSpecial"
+    t.string  "thirdSpecial"
+    t.string  "fourthSpecial"
   end
 
 end
