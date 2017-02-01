@@ -35,9 +35,22 @@ class FaceOff extends Component {
     this.getWeapons();
   }
 
+
   render() {
+
     return (
-      <div>Hello World</div>
+      <div>
+        <select>
+          {this.state.units.map((unit) => (
+        <option value={unit.unitName}>{unit.unitName}</option>
+      ))}
+        </select>
+        <select>
+          {this.state.weapons.map((weapon) => (
+            <option value={weapon.name}>{weapon.name}</option>
+          ))}
+          </select>
+      </div>
     );
   };
 
