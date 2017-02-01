@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
   resource :unitcreation
   resource :weaponcreation
+  resource :faceoffselection
 
   namespace :api do
       namespace :v1 do
-        resources :units, only: [:new, :create]
-        resources :weapons, only: [:new, :create]
+        resources :units, only: [:index, :new, :create]
+        resources :weapons, only: [:index, :new, :create]
       end
     end
 end

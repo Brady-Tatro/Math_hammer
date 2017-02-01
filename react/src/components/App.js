@@ -9,6 +9,7 @@ export default  React.createClass({
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/unitcreation">Add Unit</NavLink></li>
           <li><NavLink to="/weaponcreation">Add Weapon</NavLink></li>
+          <li><NavLink to="/faceoffselection">Face Off</NavLink></li>
           {this.props.children}
       </div>
     )

@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { hashHistory } from 'react-router';
+
 
 class Unit extends Component {
   constructor() {
@@ -34,9 +36,8 @@ class Unit extends Component {
       url: '/api/v1/units',
       data: { unit: formData }
     }).success(data =>{
-      $.toast('success');
+      hashHistory.push('/');
     }).error(data => {
-      $.toast('Please Sign In');
     });
     event.preventDefault();
   }

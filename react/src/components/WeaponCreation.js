@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { hashHistory } from 'react-router';
 
 class Weapon extends Component {
   constructor() {
@@ -30,9 +31,8 @@ class Weapon extends Component {
       url: '/api/v1/weapons',
       data: { weapon: formData }
     }).success(data =>{
-      $.toast('success');
+      hashHistory.push('/');
     }).error(data => {
-      $.toast('Please Sign In');
     });
     event.preventDefault();
   }
@@ -96,7 +96,7 @@ class Weapon extends Component {
                 onChange={this.handleChange}
                 />
 
-                      <input type="submit" value="Submit Unit" />
+                      <input type="submit" value="Submit Weapon" />
                       </form>
       </div>
     );

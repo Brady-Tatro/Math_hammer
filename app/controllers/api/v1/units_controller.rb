@@ -1,4 +1,13 @@
 class Api::V1::UnitsController < ApplicationController
+
+  def index
+    @units = Unit.all
+    respond_to do |format|
+      format.json { render json: { units: @units } }
+      format.json
+    end
+  end
+
   def new
     @unit = Unit.new
   end
